@@ -16,7 +16,7 @@ class MamoukarysAlexHaiku {
      */
     public static String[] loadLibrary() throws IOException{
         // Gets the library folder
-        File libraryFolder = new File("05. HaikuDataStructureAssignment/data/library");
+        File libraryFolder = new File("library");
         // Initializes an array containing the filepaths of each library file
         File[] libraryFiles = libraryFolder.listFiles();
 
@@ -68,14 +68,14 @@ class MamoukarysAlexHaiku {
         String fileName = reader.nextLine();
 
         // Recreates the submission file's filepath
-        File submissionFileName = new File("05. HaikuDataStructureAssignment/data/submissions/" + fileName);
+        File submissionFileName = new File("submissions/" + fileName);
 
         // Uses the submission file's filepath to check if the file exists
         // While the file doesn't exist, reprompt the user to enter a valid file
         while(!submissionFileName.isFile()){
             System.out.println("Invalid file name. Please enter a valid file name");
             fileName = reader.nextLine();
-            submissionFileName = new File("05. HaikuDataStructureAssignment/data/submissions/" + fileName);
+            submissionFileName = new File("submissions/" + fileName);
         }
 
         reader.close();
@@ -126,13 +126,13 @@ class MamoukarysAlexHaiku {
      */
     public static void exportResults(String[] libraryFileContents, String submission, File submissionFileName) throws IOException{
         // Gets the library folder        
-        File libraryFolder = new File("05. HaikuDataStructureAssignment/data/library");
+        File libraryFolder = new File("library");
         // Initializes an array containing the filepaths of each library file
         // Filepaths are referenced when writing the library file that contained flagged content
         File[] libraryFiles = libraryFolder.listFiles();
 
         // Gets the library folder        
-        File resultsFolder = new File("05. HaikuDataStructureAssignment/data/results");
+        File resultsFolder = new File("results");
         // Initializes an array containing the filepaths of each results file
         File[] resultsFiles = resultsFolder.listFiles();
 
@@ -162,7 +162,7 @@ class MamoukarysAlexHaiku {
         // I would change resultsFiles.length to resultsFileNum if Scanner worked
         // Creates a new results file
         // Uses resultsFiles.length to represent the version number of the results file
-        FileWriter fileWriter = new FileWriter("05. HaikuDataStructureAssignment/data/results/results" + resultsFiles.length + ".csv");
+        FileWriter fileWriter = new FileWriter("results/results" + resultsFiles.length + ".csv");
         // Uses PrintWriter to write data to the results file
         PrintWriter printWriter = new PrintWriter(fileWriter);
        
