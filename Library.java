@@ -1,5 +1,14 @@
+import java.util.ArrayList;
+
 class Library extends File {
-    
+    String name;
+
+    public void Library(){
+        this.name = null;
+        this.contents = null;
+    }
+
+
     public static void setName(){
         
     }
@@ -9,7 +18,7 @@ class Library extends File {
     }
 
     public static void loadLibrary(){
-        createArrayList();
+        ArrayList<Haiku> libraryStorage = new ArrayList<Haiku>();
         for(file in library){
             createHaiku();
             getName();

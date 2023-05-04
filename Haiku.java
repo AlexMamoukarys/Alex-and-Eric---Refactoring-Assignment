@@ -8,5 +8,4 @@ class Haiku {
         this.name = name;
         this.contents = contents;
     }
-
 }

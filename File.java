@@ -1,8 +1,6 @@
 abstract class File {
 
-    public static void createArrayList(){
-        
-    }
+    String[] contents;
 
     public static void createHaiku(){
 
