@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
-abstract class FileData {
+class FileData {
 
-    String[] contents;
+    public String[] contents;
 
     public static void createHaiku(){
 

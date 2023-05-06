@@ -4,13 +4,14 @@ import java.io.File;
 class LibraryData extends FileData {
     public String name;
 
-    public void LibraryData(){
+    public LibraryData(){
         this.name = null;
         this.contents = null;
     }
 
     public static void setName(Haiku haiku, File libraryFile){
         haiku.name = libraryFile.getName();
+        System.out.println("aa");
     }
 
     public static File[] loadLibraryFolder(){
@@ -19,7 +20,7 @@ class LibraryData extends FileData {
         return libraryFolder;
     }
 
-    public static void loadLibrary(){
+    public ArrayList<Haiku> loadLibrary(){
         ArrayList<Haiku> libraryStorage = new ArrayList<Haiku>();
         File[] libraryFolder = loadLibraryFolder();
         for(File libraryFile: libraryFolder){
@@ -27,9 +28,10 @@ class LibraryData extends FileData {
             
             setName(haiku, libraryFile);
 
-            setContents();
+            // setContents();
             
             addToArrayList(libraryStorage, haiku);
         }
+        return libraryStorage;
     }
 }
