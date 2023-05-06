@@ -1,16 +1,18 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 class PlagiarismChecker{
-    public static void main(String[] args){        
+    public static void main(String[] args) throws IOException{        
+
+        LibraryData libraryObject = new LibraryData();
+        ArrayList<Haiku> libraryFileName = libraryObject.loadLibrary();
+        System.out.println("First library file name: " + libraryFileName.get(0).getFileName()); // gets first library file (MB1.txt)
+
+        SubmissionData submissionObject = new SubmissionData();
+        ArrayList<Haiku> submissionFileName = submissionObject.loadSubmission();
+        System.out.println("First library file name: " + submissionFileName.get(0).getFileName()); // gets first submission file (KI.txt)
+
         
-        // ArrayList<Haiku> ha = new ArrayList<Haiku>();
-
-        LibraryData aa = new LibraryData();
-
-        ArrayList<Haiku> x = aa.loadLibrary();
-        System.out.println(x.get(0).name);
-
-
         // Haiku grah = new Haiku("library/MB1.txt", "MB1.txt", null);
         // Haiku grah2 = new Haiku("library/MB2.txt", "MB2.txt", null);
 
