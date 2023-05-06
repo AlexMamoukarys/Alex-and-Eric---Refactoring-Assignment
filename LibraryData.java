@@ -9,13 +9,8 @@ class LibraryData extends FileData {
         this.contents = null;
     }
 
-
-    public static void setName(){
-        
-    }
-
-    public static void getName(){
-
+    public static void setName(Haiku haiku, File libraryFile){
+        haiku.name = libraryFile.getName();
     }
 
     public static File[] loadLibraryFolder(){
@@ -30,9 +25,8 @@ class LibraryData extends FileData {
         for(File libraryFile: libraryFolder){
             Haiku haiku = new Haiku();
             
-            getName();
-            setName();
-            getContents();
+            setName(haiku, libraryFile);
+            
             setContents();
             
             addToArrayList(libraryStorage, haiku);
