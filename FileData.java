@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 abstract class FileData {
 
     String[] contents;
@@ -14,7 +16,7 @@ abstract class FileData {
 
     }
 
-    public static void addToArrayList(){
-
+    public static void addToArrayList(ArrayList<Haiku> storageArrayList, Haiku haiku){
+        storageArrayList.add(haiku);
     }
 }

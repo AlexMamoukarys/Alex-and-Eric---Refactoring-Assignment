@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 
-class PlagiarismChecker {
-    public static void main(String[] args){
+class PlagiarismChecker{
+    public static void main(String[] args){        
+        
         ArrayList<Haiku> ha = new ArrayList<Haiku>();
 
         Haiku grah = new Haiku("library/MB1.txt", "MB1.txt", null);

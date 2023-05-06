@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.io.File;
 
-class Library extends FileData {
+class LibraryData extends FileData {
     public String name;
 
     public void Library(){
@@ -18,20 +18,24 @@ class Library extends FileData {
 
     }
 
-    public static void loadLibraryFolder(){
-        File libraryFolder = new File("library");
-
+    public static File[] loadLibraryFolder(){
+        File library = new File("library");
+        File[] libraryFolder = library.listFiles();
+        return libraryFolder;
     }
 
     public static void loadLibrary(){
         ArrayList<Haiku> libraryStorage = new ArrayList<Haiku>();
-        for(file in library){
-            createHaiku();
+        File[] libraryFolder = loadLibraryFolder();
+        for(File libraryFile: libraryFolder){
+            Haiku haiku = new Haiku();
+            
             getName();
             setName();
             getContents();
             setContents();
-            addToArrayList();
+            
+            addToArrayList(libraryStorage, haiku);
         }
     }
 }

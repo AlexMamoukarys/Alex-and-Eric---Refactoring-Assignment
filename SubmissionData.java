@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-class Submission extends FileData {
+class SubmissionData extends FileData {
     
     int numberOfHaikus;
 
@@ -16,10 +16,12 @@ class Submission extends FileData {
     public static void loadSubmission(){
         ArrayList<Haiku> submissionStorage = new ArrayList<Haiku>();
         for(Haiku in submission){
+            Haiku haiku = new Haiku();
+
             createHaiku();
             getContents();
             setContents();
-            addToArrayList();
+            addToArrayList(submissionStorage, haiku);
         }
     }
 }
