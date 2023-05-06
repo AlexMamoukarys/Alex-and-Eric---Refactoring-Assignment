@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-class Submission extends File {
+class Submission extends FileData {
     
     int numberOfHaikus;
 

@@ -1,4 +1,4 @@
-abstract class File {
+abstract class FileData {
 
     String[] contents;
 
