@@ -4,7 +4,7 @@ class SubmissionData extends FileData {
     
     int numberOfHaikus;
 
-    public void Submission(){
+    public void SubmissionData(){
         this.numberOfHaikus = 0;
         this.contents = null;
     }

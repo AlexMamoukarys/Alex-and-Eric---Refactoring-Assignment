@@ -4,7 +4,7 @@ import java.io.File;
 class LibraryData extends FileData {
     public String name;
 
-    public void Library(){
+    public void LibraryData(){
         this.name = null;
         this.contents = null;
     }
@@ -26,7 +26,7 @@ class LibraryData extends FileData {
             Haiku haiku = new Haiku();
             
             setName(haiku, libraryFile);
-            
+
             setContents();
             
             addToArrayList(libraryStorage, haiku);
