@@ -4,12 +4,12 @@ import java.util.ArrayList;
 class AlexAndEricRefactirubgAssignment{
     public static void main(String[] args) throws IOException{        
 
-        PlagiarismChecker plagiarismCheckerObject = newPlagiarismChecker();
+        PlagiarismChecker plagiarismCheckerObject = new PlagiarismChecker();
         plagiarismCheckerObject.checkPlagiarism();
 
 
-
-
+    }
+        /*
         LibraryData libraryObject = new LibraryData();
         ArrayList<Haiku> libraryFileName = libraryObject.loadLibrary();
         System.out.println("First library file name: " + libraryFileName.get(0).getFileName()); // gets first library file (MB1.txt)
@@ -48,4 +48,5 @@ class AlexAndEricRefactirubgAssignment{
         // System.out.println(ha.get(1).name);
 
     }
+    */
 }
