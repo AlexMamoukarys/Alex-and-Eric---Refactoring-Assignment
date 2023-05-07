@@ -1,16 +1,12 @@
 class Haiku {
-    private String filepath; // Idk if we need this // ME NEITHER, WE COULD DELETE AND ADD BACK IF NEED IT LATER
-    private String fileName;
-    public String[] contents;
+    //private String filepath; // Idk if we need this // ME NEITHER, WE COULD DELETE AND ADD BACK IF NEED IT LATER
+    String name;
+    public String[] contents = new String[3];
 
     // Initializes the constructor method
     public Haiku() {
-        this.filepath = null;
-        this.fileName = null;
-
-        // We know each haiku will have 3 strings
-        // this.contents = new String[2]; <--- This gets only 2 lines in a haiku // OOHHHHHHHHHH MY BAD
-        this.contents = new String[3];
+        //this.filepath = null;
+        this.name = null;
     }
 
     // NEED YOU TO EXPLAIN EVERYTHING BELOW
@@ -22,12 +18,12 @@ class Haiku {
 
     // Sets a file name into the 'name' variable
     public void setFileName(String name){
-        this.fileName = name;
+        this.name = name;
     }
 
     // Returns the file name
     public String getFileName(){
-        return this.fileName;
+        return this.name;
     }
 
     // Stores all 3 lines of a haiku into the contents array

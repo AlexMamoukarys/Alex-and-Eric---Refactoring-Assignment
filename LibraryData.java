@@ -4,23 +4,19 @@ import java.io.IOException;
 
 // THe child class of FileData
 class LibraryData extends FileData {
-    public static String name;
 
-    // The constructor method
-    public LibraryData(){
-        // String[] contents is initially null/empty 
-        // NO NEED BECAUSE INHERITED? IDK I THINK I CONFUSE HAIKU CONTENTS WITH FILEDATA CONTENTS
-        this.contents = null;
+    public static File[] loadLibraryFolder(){
+        File library = new File("library");
+        File[] libraryFolder = library.listFiles();
+        return libraryFolder;
+    }
+
+    public static void setHaikuName(Haiku haiku, File libraryFile){
+        haiku.name = libraryFile.getName();
     }
 
     // Returns a Haiku arraylist of haikus
-    public static ArrayList<Haiku> loadLibrary() throws IOException{
-        // Declares the ArrayList that will stores all the Haiku objects
-        // PROB BETTER TO HAVE IN PARAMETER SO WE DON'T NEED TO TRANSFER TO ANOTHER ARRAYLIST - I DID THAT IN MY THING
-        ArrayList<Haiku> libraryStorage = new ArrayList<Haiku>();
-
-        // Declares an ArrayList of Strings that will hold each haiku // NOT NECESSARY?
-        ArrayList<String> fileContents;
+    public ArrayList<Haiku> loadLibrary(ArrayList<Haiku> library) throws IOException{
         
         // EXPLAIN
         // This variable is used to fetch the specific index (or line) of the haiku from each library file
@@ -28,8 +24,7 @@ class LibraryData extends FileData {
         int arrayListIndex = 0;
         
         // Using the method from the parent class, we can access the library folder
-        File[] libraryFolder = getFilesInDirectory("library"); // Do not hardcode by putting 'library' 
-        // WHY? NO NEED IN SUB. ALSO, NOT EVEN HARDCODING? PRE-BUILT METHOD?
+        File[] libraryFolder = loadLibraryFolder(); 
 
         // Loops through each file inside the library folder 
         for (File libraryFile: libraryFolder){
@@ -42,7 +37,7 @@ class LibraryData extends FileData {
             haiku.setFileName(libraryFile.getName());
 
             // Reads the library file and stores it's contents into this variable using the method from the parent class
-            fileContents = readFileContents(libraryFile);
+            haiku.contents = addLine(libraryFile);
             
             // Loops once for every 3 lines (haiku)
             // For example, if there are 2 haikus which are basically 6 lines long, divide by 3. This way, we can store each haiku separately
@@ -81,7 +76,7 @@ class LibraryData extends FileData {
         }
     
         // Stores all the library files into an array list
-        return libraryStorage;
+        return library;
     }
 
     // This just prints out all the contents of each library file inside the library folder
