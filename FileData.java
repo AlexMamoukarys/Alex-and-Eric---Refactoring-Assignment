@@ -5,6 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 // The parent class
+
+// Might not need abstract class
+// class FileData {
 abstract class FileData {
 
     //public String[] contents; // Contents are the (I assume) haikus? // NO, CONTENTS ARE THE LINES OF THE HAIKU
