@@ -23,11 +23,11 @@ abstract class FileData {
         
                 // Skips all the empty lines inside the file (So the spaces after each haiku)
                 // Maybe add "|| line.equals(null)"
-                if (!line.equals("")){
+                if (!line.equals("") || line.equals(null)){
                     // Put the line into the ArrayList
                     haiku.contents[i] = line;
                 }
-
+                
                 // TEMPORARY FIX (DOESN'T EVEN FULLY FIX THE PROBLEM) (SEE COMMENT ON PlagiarismChecker.java)
                 if(i == 3){
                     break;
@@ -36,7 +36,7 @@ abstract class FileData {
                 i++;
             }
         }
-        
+
         catch(IOException e){
             System.out.println(e);
         }

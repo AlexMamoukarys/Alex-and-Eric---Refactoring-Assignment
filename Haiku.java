@@ -1,6 +1,6 @@
 class Haiku {
     //private String filepath; // Idk if we need this // ME NEITHER, WE COULD DELETE AND ADD BACK IF NEED IT LATER
-    public String name;
+    private String name;
     public String[] contents = new String[3];
 
     // Initializes the constructor method

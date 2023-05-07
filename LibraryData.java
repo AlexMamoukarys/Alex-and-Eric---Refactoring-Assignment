@@ -11,10 +11,11 @@ class LibraryData extends FileData {
         return libraryFolder;
     }
 
+    /*
     public static void setHaikuName(Haiku haiku, File libraryFile){
-        haiku.name = libraryFile.getName();
+        haiku.setFileName(libraryFile.getName());
     }
-
+    */
     // Returns an ArrayList of Haikus
     public ArrayList<Haiku> loadLibrary(ArrayList<Haiku> library) throws IOException{
         

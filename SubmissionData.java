@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-// Child class of FilaData
+// Child class of FileData
 class SubmissionData extends FileData {
 
     public SubmissionData(){ // DO WE NEED?
@@ -20,6 +20,7 @@ class SubmissionData extends FileData {
         
         File submissionFile = new File("submissions/" + submissionFileName);
         
+        // COULD USE RECURSION HERE?
         while(!submissionFile.isFile()){
             System.out.println("Invalid file name. Please enter a valid file name");
             submissionFileName = reader.nextLine();
@@ -40,7 +41,6 @@ class SubmissionData extends FileData {
         while((line = inputStream.readLine()) != null){
             if (!line.equals("")){
                 counter++;
-                
             }
         }
         
@@ -50,8 +50,11 @@ class SubmissionData extends FileData {
     }
 
     public ArrayList<Haiku> loadSubmission(ArrayList<Haiku> submission) throws IOException{
+        
+        // Gets submission file name that user typed
         File submissionFile = getSubmissionFile();
 
+        // Gets number of haikus inside the file the user typed
         int numberOfHaikus = getNumberOfHaikus(submissionFile);
         
         for(int j = 0; j < numberOfHaikus; j++){
