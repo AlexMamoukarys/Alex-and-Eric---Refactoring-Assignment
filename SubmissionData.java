@@ -70,25 +70,21 @@ class SubmissionData extends FileData {
                 if (!line.equals("")){
                     // Put the line into the ArrayList
                     haiku.contents[i] = line;
-                    System.out.println("added line " + haiku.contents[i]);
+                    //System.out.println("added line " + haiku.contents[i]);
                     i++;
 
                     // Adds haiku to arraylist
                     if(i == 3){
                         haikuArrayList.add(haiku);
                         haiku = new Haiku();
-
-                        System.out.println("added haiku to arraylist and created new haiku object");
+                        //System.out.println("added haiku to arraylist and created new haiku object");
                     }
                 }
 
                 // When it hits an empty line, resets counter, then creartes a new Haiku object
                 else if(line.equals("")){
                     i = 0;
-                    System.out.println("reset counter");
-                }
-                else{
-                    System.out.println("Should not be here: " + line);
+                    //System.out.println("reset counter");
                 }
             }
         }
