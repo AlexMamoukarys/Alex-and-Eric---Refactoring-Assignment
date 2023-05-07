@@ -1,6 +1,6 @@
 class Haiku {
     //private String filepath; // Idk if we need this // ME NEITHER, WE COULD DELETE AND ADD BACK IF NEED IT LATER
-    String name;
+    public String name;
     public String[] contents = new String[3];
 
     // Initializes the constructor method
@@ -9,7 +9,7 @@ class Haiku {
         this.name = null;
     }
 
-    // NEED YOU TO EXPLAIN EVERYTHING BELOW
+    // NEED YOU TO EXPLAIN EVERYTHING BELOW // A LOT OF THIS STUFF IS PROBABLY USELESS NOW - WE DO NEED THE NAME STUFF FOR PRIVATE
     // Can use this method for both library and submission data
     public void setContents(String haikuText, int haikuLineIndex){
         // Stores each haiku line into a specific index of the array
