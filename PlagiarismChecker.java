@@ -66,7 +66,8 @@ class PlagiarismChecker{
             System.out.println();
         }
 
-        // compare
+        Compare.compareData(submission, library);
+
         // export
     }
 }
