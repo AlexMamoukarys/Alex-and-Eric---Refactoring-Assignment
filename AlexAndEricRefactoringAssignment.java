@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
-class PlagiarismChecker{
+class AlexAndEricRefactirubgAssignment{
     public static void main(String[] args) throws IOException{        
 
         LibraryData libraryObject = new LibraryData();

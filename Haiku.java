@@ -1,7 +1,7 @@
 class Haiku {
-    private String filepath; // Idk if we need this
+    private String filepath; // Idk if we need this // ME NEITHER, WE COULD DELETE AND ADD BACK IF NEED IT LATER
     private String fileName;
-    private String[] contents;
+    public String[] contents;
 
     // Initializes the constructor method
     public Haiku() {
@@ -9,10 +9,11 @@ class Haiku {
         this.fileName = null;
 
         // We know each haiku will have 3 strings
-        // this.contents = new String[2]; <--- This gets only 2 lines in a haiku
+        // this.contents = new String[2]; <--- This gets only 2 lines in a haiku // OOHHHHHHHHHH MY BAD
         this.contents = new String[3];
     }
 
+    // NEED YOU TO EXPLAIN EVERYTHING BELOW
     // Can use this method for both library and submission data
     public void setContents(String haikuText, int haikuLineIndex){
         // Stores each haiku line into a specific index of the array

@@ -8,24 +8,28 @@ class LibraryData extends FileData {
 
     // The constructor method
     public LibraryData(){
-        // String[] contents is initially null/empty
+        // String[] contents is initially null/empty 
+        // NO NEED BECAUSE INHERITED? IDK I THINK I CONFUSE HAIKU CONTENTS WITH FILEDATA CONTENTS
         this.contents = null;
     }
 
     // Returns a Haiku arraylist of haikus
     public static ArrayList<Haiku> loadLibrary() throws IOException{
         // Declares the ArrayList that will stores all the Haiku objects
+        // PROB BETTER TO HAVE IN PARAMETER SO WE DON'T NEED TO TRANSFER TO ANOTHER ARRAYLIST - I DID THAT IN MY THING
         ArrayList<Haiku> libraryStorage = new ArrayList<Haiku>();
 
-        // Declares an ArrayList of Strings that will hold each haiku 
+        // Declares an ArrayList of Strings that will hold each haiku // NOT NECESSARY?
         ArrayList<String> fileContents;
         
+        // EXPLAIN
         // This variable is used to fetch the specific index (or line) of the haiku from each library file
         // and will store it into an array of strings (String[] haikuText)
         int arrayListIndex = 0;
         
         // Using the method from the parent class, we can access the library folder
-        File[] libraryFolder = getFilesInDirectory("library"); // Do not hardcode by putting 'library'
+        File[] libraryFolder = getFilesInDirectory("library"); // Do not hardcode by putting 'library' 
+        // WHY? NO NEED IN SUB. ALSO, NOT EVEN HARDCODING? PRE-BUILT METHOD?
 
         // Loops through each file inside the library folder 
         for (File libraryFile: libraryFolder){
@@ -34,7 +38,7 @@ class LibraryData extends FileData {
             // Creates a new haiku object 
             Haiku haiku = new Haiku();
             
-            //setLibraryFileName(haiku, libraryFile); <--- Don't need
+            //setLibraryFileName(haiku, libraryFile); <--- Don't need // AGREE, I THINK
             haiku.setFileName(libraryFile.getName());
 
             // Reads the library file and stores it's contents into this variable using the method from the parent class
