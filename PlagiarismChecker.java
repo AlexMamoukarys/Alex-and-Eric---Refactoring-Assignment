@@ -26,7 +26,7 @@ class PlagiarismChecker{
         SubmissionData submissionObject = new SubmissionData();
         submission = submissionObject.loadSubmission(submission);
 
-        // Testing if I can access library data
+        // Testing if I can access submission data
         // PROBLEM: EVERY TIME addContents() IS CALLED, IT STARTS READING THE FILE FROM THE START
         // THIS MEANS IT WILL PRINT THE SAME HAIKU AGAIN AND AGAIN
         // HOW CAN WE GET THE BUFFERED READER TO PICK UP WHERE IT LEFT OFF, WITHOUT CHANGING THE METHOD TOO MUCH BC INHERITANCE?
