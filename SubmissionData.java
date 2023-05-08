@@ -28,6 +28,26 @@ class SubmissionData extends FileData {
         return submissionFile;
     }
 
+    /* RECURSION VERSION FOR ASKING USER TO INPUT A VALID FILE
+    public static File getSubmissionFile(){ 
+        Scanner reader = new Scanner(System.in);
+
+        System.out.println("Enter the file name of the submission that will be checked for plagiarism (including the file extension): ");
+        String submissionFileName = reader.nextLine();
+        
+        File submissionFile = new File("submissions/" + submissionFileName);
+
+        if (!submissionFile.isFile()) {
+            System.out.println("Invalid file name. Please enter a valid file name: ");
+            submissionFile = getSubmissionFile();
+        }
+
+        reader.close();
+
+        return submissionFile;
+    }
+    */
+
     // MAYBE PUT THIS CODE INTO PARENT CLASS (can be reused for LibraryData and SubmissionData)
     public ArrayList<Haiku> addContents(File file) throws IOException{
         ArrayList<Haiku> haikuArrayList = new ArrayList<Haiku>();
