@@ -6,14 +6,21 @@ import java.io.PrintWriter;
 
 class Export {
 
-    // Prints out all of the plagiarised haikus and lines
+    /**
+     * Prints out all of the plagiarised haikus and lines
+     * 
+     * @param flaggedContent the ArrayList of flagged content
+     * @param printWriter used to print to .csv file
+     */
     public static void printFlaggedContent(ArrayList<String> flaggedContent, PrintWriter printWriter) {
         for(String line: flaggedContent){
             printWriter.println(line);
         }
     }
     
-    // EXPLAIN THAT WE COULDN'T GET THE OVERWRITING OF THE FILE TO WORK
+    /**
+     * @see PlagiarismChecker for explanation of why we couldn't ask user to overwrite
+     */
     // public static int askOverwrite(File[] resultsFiles){
     //     Scanner reader = new Scanner(System.in);
         
@@ -34,7 +41,15 @@ class Export {
     //     return resultsFiles.length;
     // }
 
-    // Prints out all ofthe results in the .csv file
+    /**
+     * Display results in .csv file
+     * 
+     * @param submissionFile the name of the selected submission file
+     * @param flaggedContent a 2D ArrayList of flagged Haikus
+     * @param flaggedLibraryFiles an ArrayList of the filenames of library files with plagiarized content
+     * @param printWriter used to write to .csv
+     * @throws IOException
+     */
     public static void exportResults(File submissionFile, ArrayList<ArrayList<String>> flaggedContent, ArrayList<String> flaggedLibraryFiles, PrintWriter printWriter) throws IOException {
         
         // Prints the user-inputted submissions file name
@@ -49,6 +64,7 @@ class Export {
             printWriter.println("Flagged Content: ");
             printFlaggedContent(flaggedContent.get(i), printWriter);
             printWriter.println();
+
             printWriter.println("Located in library file: " + flaggedLibraryFiles.get(i));
             printWriter.println();
         }

@@ -62,30 +62,25 @@ class SubmissionData extends FileData {
 
             // Reads each line in the submissions file
             while((line = inputStream.readLine()) != null){
-                
-                //Haiku haiku = new Haiku(); <--- creates a haiku object for every line read
-                
+                                
                 // Reads the line in the file if there is no empty space/empty line
                 if (!line.equals("")){
                     
                     // Appends the read line into a specific index in the ArrayList from the Haiku class (can only hold 3 lines)
                     haiku.contents[i] = line;
                     
-                    //System.out.println("added line " + haiku.contents[i]);
                     i++;
 
                     // Adds the entire haiku to the arraylist and creates a new Haiku object so it can continously repeat the process
                     if(i == 3){
                         haikuArrayList.add(haiku);
                         haiku = new Haiku();
-                        //System.out.println("added haiku to arraylist and created new haiku object");
                     }
                 }
 
                 // When BufferedReader hits an empty line, it resets the 'i' counter so the lines of the next haiku can be stored correctly
                 else if(line.equals("")){
                     i = 0;
-                    //System.out.println("reset counter");
                 }
             }
         }
@@ -99,66 +94,22 @@ class SubmissionData extends FileData {
                 inputStream.close();
             }
         }
-        // Wrote code to see if it works
-        /*
-        System.out.println("oooooooooooooooooooooooooooooo");
-        for(int j = 0; j < haikuArrayList.size(); j++){
-            Haiku hk = haikuArrayList.get(j);
-            String[] s = hk.getContents();
-            System.out.println(s[0]);
-            System.out.println(s[1]);
-            System.out.println(s[2]);
-        }
-        System.out.println("//////////////////////////////");
-        */
 
-        // Returns an ArrayList of Haiku objects (it's contents)
+        // Returns an ArrayList of Haiku objects (its contents)
         return haikuArrayList;
     }
 
-
+    /**
+     * Reads and stores contents of the submission file
+     * 
+     * @param submissionFile the submission file to be read
+     * @return the ArrayList of all submission Haikus
+     * @throws IOException
+     */
     public ArrayList<Haiku> loadSubmission(File submissionFile) throws IOException{
-        
-        // Gets submission file name that user typed
-        //Haiku hk;
-
 
         ArrayList<Haiku> submission = this.addContents(submissionFile);
 
-        // Wrote code to see if it works
-        /*
-        System.out.println("----------------");
-        for(int i = 0; i < submission.size(); i++){
-            hk = submission.get(i);
-            System.out.println(hk.getContents()[0]);
-            System.out.println(hk.getContents()[1]);
-            System.out.println(hk.getContents()[2]);
-            System.out.println("+++++++++++++++++++++++");
-        }
-        System.out.println("========================");
-        */
-
         return submission;
     }
-
-    /*
-    public ArrayList<Haiku> loadSubmission(ArrayList<Haiku> submission) throws IOException{
-        
-        // Gets submission file name that user typed
-        File submissionFile = getSubmissionFile();
-
-        // Gets number of haikus inside the file the user typed
-        int numberOfHaikus = getNumberOfHaikus(submissionFile);
-        
-        for(int j = 0; j < numberOfHaikus; j++){
-            Haiku haiku = new Haiku();
-            
-            // PROBLEM: SEE COMMENT IN PlagiarismChecker.java
-            addContents(submissionFile, haiku);
-
-            addToArrayList(submission, haiku);
-        }
-        return submission;
-    }
-    */
 }
