@@ -2,20 +2,20 @@ import java.util.ArrayList;
 
 class Compare {
 
-    public static String[][] flaggedContent;
+    public static ArrayList<ArrayList<String>> flaggedContent = new ArrayList<ArrayList<String>>();
+    public static ArrayList<String> flaggedLibraryFiles = new ArrayList<String>();
 
-    public static String[][] compareData(ArrayList<Haiku> submission, ArrayList<Haiku> library){
+    public static void compareData(ArrayList<Haiku> submission, ArrayList<Haiku> library){
         for(Haiku submissionHaiku: submission){
             for(Haiku libraryHaiku: library){
                 for(String libraryLine: libraryHaiku.contents){
                     for(String submissionLine: submissionHaiku.contents){
                         if(submissionLine.equals(libraryLine)){
-                            System.out.println(submissionLine);
+                            flaggedContent.get(0).add(submissionLine); // FIX THIS
                         }
                     }
                 }
             }
         }
-        return flaggedContent;
     }
 }

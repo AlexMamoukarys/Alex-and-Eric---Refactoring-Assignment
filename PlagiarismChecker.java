@@ -1,11 +1,15 @@
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 class PlagiarismChecker{
-    
+    ArrayList<Haiku> library = new ArrayList<Haiku>();
+    LibraryData libraryObject = new LibraryData();
+
+    ArrayList<Haiku> submission = new ArrayList<Haiku>();
+    SubmissionData submissionObject = new SubmissionData();
+
     public void checkPlagiarism() throws IOException{
-        ArrayList<Haiku> library = new ArrayList<Haiku>();
-        LibraryData libraryObject = new LibraryData();
         library = libraryObject.loadLibrary(library);
 
         for (int i = 0; i < library.size(); i++){
@@ -35,9 +39,9 @@ class PlagiarismChecker{
         System.out.println(library.get(2).contents[2]);
         */
 
-        ArrayList<Haiku> submission = new ArrayList<Haiku>();
-        SubmissionData submissionObject = new SubmissionData();
-        submission = submissionObject.loadSubmission();
+        File submissionFile = SubmissionData.getSubmissionFile();
+
+        submission = submissionObject.loadSubmission(submissionFile);
         //submission = submissionObject.loadSubmission(submission); // DO NOT NEED
 
         // Testing if I can access submission data
@@ -66,8 +70,9 @@ class PlagiarismChecker{
             System.out.println();
         }
 
+        // Separate flagged content in export
         Compare.compareData(submission, library);
-
+        Export.exportResults(submissionFile, Compare.flaggedContent, Compare.flaggedLibraryFiles);
         // export
     }
 }

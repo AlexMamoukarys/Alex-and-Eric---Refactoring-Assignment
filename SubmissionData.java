@@ -113,11 +113,10 @@ class SubmissionData extends FileData {
         return haikuArrayList;
     }
 
-    public ArrayList<Haiku> loadSubmission() throws IOException{
+    public ArrayList<Haiku> loadSubmission(File submissionFile) throws IOException{
         
         // Gets submission file name that user typed
         //Haiku hk;
-        File submissionFile = getSubmissionFile();
 
         ArrayList<Haiku> submission = this.addContents(submissionFile);
 
