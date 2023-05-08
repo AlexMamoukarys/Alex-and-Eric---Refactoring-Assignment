@@ -3,11 +3,6 @@ class Haiku {
     private String name;
     public String[] contents = new String[3];
 
-    // Initializes the constructor method
-    public Haiku() {
-
-    }
-
     // Sets a file name into the 'name' variable
     public void setFileName(String name){
         this.name = name;
