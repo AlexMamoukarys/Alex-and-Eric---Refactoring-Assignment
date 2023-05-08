@@ -6,11 +6,11 @@ class Export {
         System.out.println(fileName);
     }
 
-    public static void printFlaggedContent(ArrayList<String> flaggedContent){
+    public static void printFlaggedContent(ArrayList<ArrayList<String>> flaggedContent){
         System.out.println("Flagged Content: ");
         
         int i = 0;
-        for(String line: flaggedContent){
+        for(String line: flaggedContent.get(i)){
                 System.out.println(line);
                 if(i % 3 == 0){
                     System.out.println();
@@ -23,7 +23,7 @@ class Export {
         printFileName(submissionFile.getName()); 
 
         for(int i = 0; i < flaggedContent.size(); i++){
-            printFlaggedContent(flaggedContent.get(0));
+            printFlaggedContent(flaggedContent);
             printFileName(flaggedLibraryFiles.get(i));
         }
     }

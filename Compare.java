@@ -6,17 +6,23 @@ class Compare {
     public static ArrayList<String> flaggedLibraryFiles = new ArrayList<String>();
 
     public static void compareData(ArrayList<Haiku> submission, ArrayList<Haiku> library){
+        boolean b = false;
         for(Haiku submissionHaiku: submission){
             for(Haiku libraryHaiku: library){
                 for(String libraryLine: libraryHaiku.contents){
+                    ArrayList<String> x = new ArrayList<String>();
                     for(String submissionLine: submissionHaiku.contents){
                         if(submissionLine.equals(libraryLine)){
-                            flaggedContent.get(0).add(submissionLine); // FIX THIS
+                            x.add(submissionLine); // FIX THIS
+                            b = true;
                         }
                     }
-                    // if(flagged content was added){
-                    //     add library file name to flaggedLiubraryFIles;
-                    // }
+                    flaggedContent.add(x);                    
+                    if(b == true){
+                        System.out.println();
+                        //add library file name to flaggedLiubraryFIles;
+                        b = false;
+                    }
                 }
             }
         }
