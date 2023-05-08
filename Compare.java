@@ -14,8 +14,15 @@ class Compare {
                             flaggedContent.get(0).add(submissionLine); // FIX THIS
                         }
                     }
+                    // if(flagged content was added){
+                    //     add library file name to flaggedLiubraryFIles;
+                    // }
                 }
             }
+        }
+
+        for(String line: flaggedContent.get(0)){
+            System.out.println(line);
         }
     }
 }

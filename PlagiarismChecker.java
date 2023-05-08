@@ -72,7 +72,9 @@ class PlagiarismChecker{
 
         // Separate flagged content in export
         Compare.compareData(submission, library);
-        Export.exportResults(submissionFile, Compare.flaggedContent, Compare.flaggedLibraryFiles);
+
+        
+        // Export.exportResults(submissionFile, Compare.flaggedContent, Compare.flaggedLibraryFiles);
         // export
     }
 }
