@@ -3,32 +3,43 @@ import java.util.ArrayList;
 class Compare {
 
     public static ArrayList<ArrayList<String>> flaggedContent = new ArrayList<ArrayList<String>>();
+
     public static ArrayList<String> flaggedLibraryFiles = new ArrayList<String>();
 
     public static void compareData(ArrayList<Haiku> submission, ArrayList<Haiku> library){
-        boolean b = false;
+        int i = 0;
+        int j = 0;
+
+        flaggedContent.add(new ArrayList<String>());
+
         for(Haiku submissionHaiku: submission){
             for(Haiku libraryHaiku: library){
                 for(String libraryLine: libraryHaiku.contents){
-                    ArrayList<String> x = new ArrayList<String>();
                     for(String submissionLine: submissionHaiku.contents){
                         if(submissionLine.equals(libraryLine)){
-                            x.add(submissionLine); // FIX THIS
-                            b = true;
+                            flaggedContent.get(j).add(submissionLine);
+                            i++;
+                            if(i % 3 == 0){
+                                flaggedContent.add(new ArrayList<String>());
+                                j++;
+                            }
+                            if(!flaggedLibraryFiles.contains(libraryHaiku.getFileName())){
+                                flaggedLibraryFiles.add(libraryHaiku.getFileName());
+                            }
                         }
-                    }
-                    flaggedContent.add(x);                    
-                    if(b == true){
-                        System.out.println();
-                        //add library file name to flaggedLiubraryFIles;
-                        b = false;
                     }
                 }
             }
         }
 
-        for(String line: flaggedContent.get(0)){
-            System.out.println(line);
-        }
+        System.out.println(flaggedContent);
+        System.out.println(flaggedLibraryFiles);
+
+        // for(String x: flaggedContent.get(0)){
+        //     System.out.println(x);
+        // }
+        // for(String line: flaggedContent.get(0)){
+        //     System.out.println(line);
+        // }
     }
 }
