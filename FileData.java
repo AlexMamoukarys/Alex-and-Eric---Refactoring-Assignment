@@ -55,7 +55,12 @@ abstract class FileData {
         }
     }
 
-    // Appends a Haiku object into the ArrayList of Haiku objects (used for library and submissio)
+    /**
+     * Appends a Haiku object into the ArrayList of Haiku objects (used for library and submission)
+     * 
+     * @param storageArrayList the ArrayList of Haiku Objects that will be appended to
+     * @param haiku the Haiku to append
+     */
     public static void addToArrayList(ArrayList<Haiku> storageArrayList, Haiku haiku){
         storageArrayList.add(haiku);
     }

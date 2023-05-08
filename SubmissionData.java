@@ -8,7 +8,11 @@ import java.io.IOException;
 // Child class of FileData
 class SubmissionData extends FileData {
 
-    // Returns a valid file that the user inputted to check for plagiarism
+    /**
+     * Gets the user's desired submission file to check for plagiarism
+     * 
+     * @return a valid file that the user inputted to be checked for plagiarism
+     */
     public static File getSubmissionFile(){ 
         
         Scanner reader = new Scanner(System.in);
@@ -17,7 +21,7 @@ class SubmissionData extends FileData {
         System.out.println("Enter the file name of the submission that will be checked for plagiarism (including the file extension): ");
         String submissionFileName = reader.nextLine();
         
-        // Accesses the submissions file
+        // Accesses the submission file
         File submissionFile = new File("submissions/" + submissionFileName);
 
         // Using recursion, it will continuously prompt the user to enter a valid file name to be checked for plagiarism
@@ -33,8 +37,15 @@ class SubmissionData extends FileData {
         return submissionFile;
     }
 
-    // MAYBE PUT THIS CODE INTO PARENT CLASS (can be reused for LibraryData and SubmissionData)
-    // EXPLAIN WHY WE DIDN'T PUT THIS METHOD INTO THE PARENT CLASS
+    /**
+     * Reads and adds contents of a file to a Haiku Object
+     * 
+     * @see FileData.java addContents() for explanation of redundancy
+     * 
+     * @param file the file to be read
+     * @return the ArrayList of Haiku Objects
+     * @throws IOException
+     */
     public ArrayList<Haiku> addContents(File file) throws IOException{
 
         // Stores all of the haikus inside a submission file into an ArrayList of Haikus
