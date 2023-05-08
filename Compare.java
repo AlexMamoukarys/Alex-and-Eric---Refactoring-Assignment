@@ -31,15 +31,5 @@ class Compare {
                 }
             }
         }
-
-        System.out.println(flaggedContent);
-        System.out.println(flaggedLibraryFiles);
-
-        // for(String x: flaggedContent.get(0)){
-        //     System.out.println(x);
-        // }
-        // for(String line: flaggedContent.get(0)){
-        //     System.out.println(line);
-        // }
     }
 }

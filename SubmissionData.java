@@ -8,10 +8,6 @@ import java.io.IOException;
 // Child class of FileData
 class SubmissionData extends FileData {
 
-    public SubmissionData(){ // DO WE NEED? // I DONT THINK SO
-
-    }
-
     public static File getSubmissionFile(){ // MIGHT WANT TO CALL THIS IN PlagiarismChecker.jav SO WE CAN ACCESS LATER WHEN EXPORTING?
         Scanner reader = new Scanner(System.in);
 
@@ -30,23 +26,6 @@ class SubmissionData extends FileData {
         reader.close();
 
         return submissionFile;
-    }
-
-    public static int getNumberOfHaikus(File submissionFile) throws IOException{
-        BufferedReader inputStream = null;
-        String line;
-        int counter = 0;
-        
-        inputStream = new BufferedReader(new FileReader(submissionFile));
-        while((line = inputStream.readLine()) != null){
-            if (!line.equals("")){
-                counter++;
-            }
-        }
-        
-        inputStream.close();
-
-        return counter/3;
     }
 
     // MAYBE PUT THIS CODE INTO PARENT CLASS (can be reused for LibraryData and SubmissionData)

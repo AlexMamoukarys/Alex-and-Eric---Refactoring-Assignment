@@ -13,13 +13,13 @@ class PlagiarismChecker{
 
     public static PrintWriter initializePrintWriter() throws IOException{
         File resultsFolder = new File("results");
-        // Initializes an array containing the filepaths of each results file
         
+        // Initializes an array containing the filepaths of each results file
         File[] resultsFiles = resultsFolder.listFiles();
     
         FileWriter fileWriter = new FileWriter("results/results" + resultsFiles.length + ".csv");
-        // Uses PrintWriter to write data to the results file
         
+        // Uses PrintWriter to write data to the results file
         PrintWriter printWriter = new PrintWriter(fileWriter);
 
         return printWriter;
