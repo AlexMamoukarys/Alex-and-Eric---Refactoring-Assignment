@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 class Compare {
 
-    public static ArrayList<ArrayList<String>> flaggedContent = new ArrayList<ArrayList<String>>();
+    protected static ArrayList<ArrayList<String>> flaggedContent = new ArrayList<ArrayList<String>>();
 
-    public static ArrayList<String> flaggedLibraryFiles = new ArrayList<String>();
+    protected static ArrayList<String> flaggedLibraryFiles = new ArrayList<String>();
 
     public static void compareData(ArrayList<Haiku> submission, ArrayList<Haiku> library){
         int i = 0;

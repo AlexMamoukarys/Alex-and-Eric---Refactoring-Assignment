@@ -5,8 +5,6 @@ import java.io.FileReader;
 import java.io.IOException;
 
 // The parent class
-
-// Might not need abstract class
 // class FileData {
 abstract class FileData {
 
@@ -14,24 +12,26 @@ abstract class FileData {
     //public static String name; All files have a name // NO NEED BECAUSE NAME CAN JUST BE AQUIRED USING getName()
 
     // Maybe this is the getContents() method from the UML diagram? // SURE
+    
+    // Reads a file and stores the contents into a Haiku object(?) of ONE haiku
     public void addContents(File file, Haiku haiku) throws IOException{
         BufferedReader inputStream = null;
         String line;
         int i = 0;
         
-        // BufferedReader needs try and catch + IOException
         try{
             inputStream = new BufferedReader(new FileReader(file));
             while((line = inputStream.readLine()) != null){
         
                 // Skips all the empty lines inside the file (So the spaces after each haiku)
-                // Maybe add "|| line.equals(null)"
                 if (!line.equals("") || line.equals(null)){
-                    // Put the line into the ArrayList
+                    
+                    // Appends the read line into an array
                     haiku.contents[i] = line;
                 }
                 
                 // TEMPORARY FIX (DOESN'T EVEN FULLY FIX THE PROBLEM) (SEE COMMENT ON PlagiarismChecker.java)
+                // When BuffedReader reads 3 lines, the while loop will break (so it reads one haiku)
                 if(i == 3){
                     break;
                 }
@@ -51,6 +51,7 @@ abstract class FileData {
         }
     }
 
+    // Appends a Haiku object into the ArrayList of Haiku objects
     public static void addToArrayList(ArrayList<Haiku> storageArrayList, Haiku haiku){
         storageArrayList.add(haiku);
     }
