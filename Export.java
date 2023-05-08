@@ -1,30 +1,30 @@
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.io.PrintWriter;
 
 class Export {
-    public static void printFileName(String fileName){
-        System.out.println(fileName);
-    }
 
-    public static void printFlaggedContent(ArrayList<ArrayList<String>> flaggedContent){
+    public static void printFlaggedContent(ArrayList<String> flaggedContent, PrintWriter printWriter) {
         System.out.println("Flagged Content: ");
         
-        int i = 0;
-        for(String line: flaggedContent.get(i)){
-                System.out.println(line);
-                if(i % 3 == 0){
-                    System.out.println();
-                }
-                i++;
+        for(String line: flaggedContent){
+            printWriter.println(line);
         }
     }
-
-    public static void exportResults(File submissionFile, ArrayList<ArrayList<String>> flaggedContent, ArrayList<String> flaggedLibraryFiles){
-        printFileName(submissionFile.getName()); 
-
-        for(int i = 0; i < flaggedContent.size(); i++){
-            printFlaggedContent(flaggedContent);
-            printFileName(flaggedLibraryFiles.get(i));
+    
+    public static void exportResults(File submissionFile, ArrayList<ArrayList<String>> flaggedContent, ArrayList<String> flaggedLibraryFiles, PrintWriter printWriter) throws IOException {
+        
+        printWriter.println("Submission File name: " + submissionFile);
+        printWriter.println();
+        for(int i = 0; i < flaggedContent.size() - 1; i++){
+            printWriter.println("Flagged Content: ");
+            printFlaggedContent(flaggedContent.get(i), printWriter);
+            printWriter.println();
+            printWriter.println("Located in library file: " + flaggedLibraryFiles.get(i));
+            printWriter.println();
         }
+
+        printWriter.close();
     }
 }

@@ -1,5 +1,7 @@
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 class PlagiarismChecker{
@@ -9,72 +11,30 @@ class PlagiarismChecker{
     ArrayList<Haiku> submission = new ArrayList<Haiku>();
     SubmissionData submissionObject = new SubmissionData();
 
+    public static PrintWriter initializePrintWriter() throws IOException{
+        File resultsFolder = new File("results");
+        // Initializes an array containing the filepaths of each results file
+        
+        File[] resultsFiles = resultsFolder.listFiles();
+    
+        FileWriter fileWriter = new FileWriter("results/results" + resultsFiles.length + ".csv");
+        // Uses PrintWriter to write data to the results file
+        
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+
+        return printWriter;
+    }
+
     public void checkPlagiarism() throws IOException{
         library = libraryObject.loadLibrary(library);
-
-        for (int i = 0; i < library.size(); i++){
-            Haiku hk2 = library.get(i);
-            String[] l = hk2.getContents();
-            System.out.println("Library file name: " + library.get(i).getFileName());
-            System.out.println("Library haiku # " + (i + 1));
-            System.out.println(l[0]);
-            System.out.println(l[1]);
-            System.out.println(l[2]);
-            System.out.println();
-        }
-
-        // Testing if I can access library data
-        /*
-        System.out.println(library.get(0).getFileName());
-        System.out.println(library.get(0).contents[0]);
-        System.out.println(library.get(0).contents[1]);
-        System.out.println(library.get(0).contents[2]);
-        System.out.println(library.get(1).getFileName());
-        System.out.println(library.get(1).contents[0]);
-        System.out.println(library.get(1).contents[1]);
-        System.out.println(library.get(1).contents[2]);
-        System.out.println(library.get(2).getFileName());
-        System.out.println(library.get(2).contents[0]);
-        System.out.println(library.get(2).contents[1]);
-        System.out.println(library.get(2).contents[2]);
-        */
 
         File submissionFile = SubmissionData.getSubmissionFile();
 
         submission = submissionObject.loadSubmission(submissionFile);
-        //submission = submissionObject.loadSubmission(submission); // DO NOT NEED
 
-        // Testing if I can access submission data
-        // PROBLEM: EVERY TIME addContents() IS CALLED, IT STARTS READING THE FILE FROM THE START
-        // THIS MEANS IT WILL PRINT THE SAME HAIKU AGAIN AND AGAIN
-        // HOW CAN WE GET THE BUFFERED READER TO PICK UP WHERE IT LEFT OFF, WITHOUT CHANGING THE METHOD TOO MUCH BC INHERITANCE?
-
-        /*
-        System.out.println(submission.get(0).contents[0]);
-        System.out.println(submission.get(0).contents[1]);
-        System.out.println(submission.get(0).contents[2]);
-        System.out.println(submission.get(1).contents[0]);
-        System.out.println(submission.get(1).contents[1]);
-        System.out.println(submission.get(1).contents[2]);
-        System.out.println(submission.get(2).contents[0]);
-        System.out.println(submission.get(2).contents[1]);
-        System.out.println(submission.get(2).contents[2]);
-        */
-        for(int j = 0; j < submission.size(); j++){
-            Haiku hk = submission.get(j);
-            String[] s = hk.getContents();;
-            System.out.println("Submission haiku # " + (j + 1));
-            System.out.println(s[0]);
-            System.out.println(s[1]);
-            System.out.println(s[2]);
-            System.out.println();
-        }
-
-        // Separate flagged content in export
         Compare.compareData(submission, library);
 
-        
-        // Export.exportResults(submissionFile, Compare.flaggedContent, Compare.flaggedLibraryFiles);
-        // export
+        PrintWriter printWriter = initializePrintWriter();
+        Export.exportResults(submissionFile, Compare.flaggedContent, Compare.flaggedLibraryFiles, printWriter);
     }
 }
