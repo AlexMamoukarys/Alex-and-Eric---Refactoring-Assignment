@@ -17,6 +17,9 @@ class PlagiarismChecker{
         // Initializes an array containing the filepaths of each results file
         File[] resultsFiles = resultsFolder.listFiles();
     
+        // int resultsFileNum = Export.askOverwrite(resultsFiles);
+
+        // resultsFiles.length would become resultsFileNum if we could get overwrite functionality 
         FileWriter fileWriter = new FileWriter("results/results" + resultsFiles.length + ".csv");
         
         // Uses PrintWriter to write data to the results file
