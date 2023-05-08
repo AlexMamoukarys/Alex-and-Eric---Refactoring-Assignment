@@ -1,37 +1,50 @@
 import java.util.ArrayList;
 import java.io.File;
+import java.io.IOException;
 
+// The subclass of FileData
 class LibraryData extends FileData {
-    public String name;
 
-    public LibraryData(){
-        this.name = null;
-        this.contents = null;
-    }
-
-    public static void setName(Haiku haiku, File libraryFile){
-        haiku.name = libraryFile.getName();
-        System.out.println("aa");
-    }
-
+    /**
+     * Loads the names of each library file's filepath
+     * 
+     * @return a file array with all of the library files' filepaths
+     */
     public static File[] loadLibraryFolder(){
         File library = new File("library");
         File[] libraryFolder = library.listFiles();
         return libraryFolder;
     }
 
-    public ArrayList<Haiku> loadLibrary(){
-        ArrayList<Haiku> libraryStorage = new ArrayList<Haiku>();
-        File[] libraryFolder = loadLibraryFolder();
-        for(File libraryFile: libraryFolder){
-            Haiku haiku = new Haiku();
-            
-            setName(haiku, libraryFile);
+    /**
+     * Loads the ArrayList of library Haiku Objects
+     * 
+     * @param library the ArrayList of library Haiku Objects
+     * @return an ArrayList of Haikus from the library folder
+     * @throws IOException
+     */
+    public ArrayList<Haiku> loadLibrary(ArrayList<Haiku> library) throws IOException{
+        
+        // Acts as a placeholder to access the files inside the library folder
+        File[] libraryFolder = loadLibraryFolder(); 
 
-            // setContents();
+        // Loops through each file inside the library folder 
+        for (File libraryFile: libraryFolder){
             
-            addToArrayList(libraryStorage, haiku);
+            // Creates a new Haiku object 
+            Haiku haiku = new Haiku();
+                        
+            // Sets and gets the file name of each library file
+            haiku.setFileName(libraryFile.getName());
+
+            // Reads and stores the Haiku's contents using the method from the parent class 
+            addContents(libraryFile, haiku);
+
+            // Appends the Haiku object to the ArrayList of Haiku Objects
+            addToArrayList(library, haiku);
         }
-        return libraryStorage;
+
+        // Returns an ArrayList containing the name and contents of each Haiku in the Library
+        return library;
     }
 }
